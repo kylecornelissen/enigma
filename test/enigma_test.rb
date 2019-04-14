@@ -20,7 +20,11 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_key_randomizer
-    assert 5, @enigma.key_randomizer.size
+    assert_equal 5, @enigma.key_randomizer.size
+  end
+
+  def test_current_date_returns_todays_date_in_MMDDYY
+    assert_equal "140419", @enigma.current_date
   end
 
 end

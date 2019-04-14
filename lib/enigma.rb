@@ -3,6 +3,7 @@ require 'date'
 class Enigma
   def encrypt(message, key, date)
     key = key_randomizer
+    date = current_date
     encrypt_hash = {:encryption => message, :key => key, :date => date}
   end
 
@@ -10,6 +11,8 @@ class Enigma
     "%05d" % rand(10**5)
   end
 
-  # get date and square it
+  def current_date
+    Time.now.strftime("%d%m%y")
+  end
 
 end
