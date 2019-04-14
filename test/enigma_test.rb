@@ -3,6 +3,7 @@ require './test/test_helper'
 class EnigmaTest < Minitest::Test
   def setup
     @enigma = Enigma.new
+    @today = Time.now.strftime("%d%m%y")
   end
 
   def test_enigma_class_exists
@@ -33,8 +34,13 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_square_date_multiplies_current_date_times_current_date
-    expected = (Time.now.strftime("%d%m%y")).to_i * (Time.now.strftime("%d%m%y")).to_i
+    expected = (@today.to_i * @today.to_i).to_s
     assert_equal expected, @enigma.square_date
+  end
+
+  def test_square_date_last_four_returns_last_four_digits_of_square_date
+    expected = ((@today.to_i * @today.to_i).to_s)[-4..-1]
+    assert_equal expected, @enigma.square_date_last_four
   end
 
 end

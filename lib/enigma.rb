@@ -23,7 +23,11 @@ class Enigma
   end
 
   def square_date
-    current_date.to_i * current_date.to_i
+    (current_date.to_i * current_date.to_i).to_s
+  end
+
+  def square_date_last_four
+    square_date[-4..-1]
   end
 
 end
