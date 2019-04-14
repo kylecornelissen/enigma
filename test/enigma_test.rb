@@ -24,7 +24,11 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_current_date_returns_todays_date_in_MMDDYY
-    assert_equal "140419", @enigma.current_date
+    assert_equal Time.now.strftime("%d%m%y"), @enigma.current_date
+  end
+
+  def test_split_key_splits_random_key_into_four_keys
+    assert_equal 4, @enigma.split_keys.count
   end
 
 end
