@@ -22,6 +22,8 @@ class Enigma
     split_keys = [alfa_key, bravo_key, charlie_key, delta_key]
   end
 
-
+  def square_date
+    current_date.to_i * current_date.to_i
+  end
 
 end

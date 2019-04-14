@@ -24,11 +24,17 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_current_date_returns_todays_date_in_MMDDYY
-    assert_equal Time.now.strftime("%d%m%y"), @enigma.current_date
+    expected = Time.now.strftime("%d%m%y")
+    assert_equal expected, @enigma.current_date
   end
 
   def test_split_key_splits_random_key_into_four_keys
     assert_equal 4, @enigma.split_keys.count
+  end
+
+  def test_square_date_multiplies_current_date_times_current_date
+    expected = (Time.now.strftime("%d%m%y")).to_i * (Time.now.strftime("%d%m%y")).to_i
+    assert_equal expected, @enigma.square_date
   end
 
 end
