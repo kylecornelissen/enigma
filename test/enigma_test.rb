@@ -26,8 +26,4 @@ class EnigmaTest < Minitest::Test
     assert_instance_of String, @enigma.current_date
   end
 
-  # def test_key_shifter_adds_split_last_four_and_split_keys
-  #   assert_equal 4, @enigma.key_shifter.count
-  # end
-
 end

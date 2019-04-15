@@ -9,8 +9,9 @@ class KeyGenTest < Minitest::Test
     assert_instance_of KeyGen, @key_gen
   end
 
-  def test_key_randomizer
-    assert_equal 5, @key_gen.key_randomizer.size
+  def test_random_key_initializes_five_character_string
+    assert_equal 5, @key_gen.random_key.size
+    assert_instance_of String, @key_gen.random_key
   end
 
   def test_split_key_splits_random_key_into_four_keys
