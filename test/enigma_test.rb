@@ -11,7 +11,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_encrypt_returns_hash_with_encrypted_message_and_key_and_date
-    skip
     expected = {
       encryption: "hello world",
       key: "02715",
@@ -20,17 +19,9 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
   end
 
-  def test_key_randomizer
-    assert_equal 5, @enigma.key_randomizer.size
-  end
-
   def test_current_date_returns_todays_date_in_MMDDYY
     expected = @today
     assert_equal expected, @enigma.current_date
-  end
-
-  def test_split_key_splits_random_key_into_four_keys
-    assert_equal 4, @enigma.split_keys.count
   end
 
   def test_square_date_multiplies_current_date_times_current_date
@@ -47,8 +38,8 @@ class EnigmaTest < Minitest::Test
     assert_equal 4, @enigma.split_last_four.count
   end
 
-  def test_key_shifter_adds_split_last_four_and_split_keys
-    assert_equal 4, @enigma.shifter.count
-  end
+  # def test_key_shifter_adds_split_last_four_and_split_keys
+  #   assert_equal 4, @enigma.key_shifter.count
+  # end
 
 end
