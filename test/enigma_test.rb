@@ -47,7 +47,7 @@ class EnigmaTest < Minitest::Test
     assert_equal 4, @enigma.split_last_four.count
   end
 
-  def test_shifter_adds_split_last_four_and_split_keys
+  def test_key_shifter_adds_split_last_four_and_split_keys
     assert_equal 4, @enigma.shifter.count
   end
 

@@ -38,7 +38,7 @@ class Enigma
     offsets = [alfa_offset, bravo_offset, charlie_offset, delta_offset]
   end
 
-  def shifter
+  def key_shifter
     alfa_shift = split_keys[0] + split_last_four[0]
     bravo_shift = split_keys[1] + split_last_four[1]
     charlie_shift = split_keys[2] + split_last_four[2]
