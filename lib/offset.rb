@@ -1,7 +1,7 @@
+require_relative 'date_today'
+
 class OffSet
-  def current_date
-    Time.now.strftime("%d%m%y")
-  end
+  include DateToday
 
   def square_date
     (current_date.to_i * current_date.to_i).to_s
