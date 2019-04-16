@@ -32,8 +32,8 @@ class Shifter
 
   def scramble_letter(letter)
     if @characters.include?(letter)
-      @characters.rotate! until letter == @characters.first
       @shift_keys.rotate!
+      @characters.rotate! until letter == @characters.first
       @characters.rotate!(@shift_keys[3]).first
     else
       letter
@@ -49,5 +49,4 @@ class Shifter
       letter
     end
   end
-
 end

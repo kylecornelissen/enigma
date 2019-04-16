@@ -12,7 +12,7 @@ class EnigmaTest < Minitest::Test
 
   def test_encrypt_returns_hash_with_encrypted_message_and_key_and_date
     expected = {
-      encryption: "hello world",
+      encryption: "keder ohulw",
       key: "02715",
       date: "040895"
     }

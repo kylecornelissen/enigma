@@ -34,5 +34,4 @@ class ShifterTest < Minitest::Test
     @shifter.key_shifter(split_keys1, split_last_four1)
     assert_equal "h", @shifter.unscramble_letter("k")
   end
-
 end
