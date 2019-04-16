@@ -1,10 +1,13 @@
 require_relative 'date_today'
 
 class OffSet
-  include DateToday
-
+include DateToday
+attr_reader :date
+  def initialize(date = current_date)
+    @date = date
+  end
   def square_date
-    (current_date.to_i * current_date.to_i).to_s
+    (@date.to_i * @date.to_i).to_s
   end
 
   def square_date_last_four
