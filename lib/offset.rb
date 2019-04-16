@@ -19,6 +19,6 @@ attr_reader :date
     bravo_offset = square_date_last_four[1]
     charlie_offset = square_date_last_four[2]
     delta_offset = square_date_last_four[3]
-    offsets = [alfa_offset, bravo_offset, charlie_offset, delta_offset]
+    [alfa_offset, bravo_offset, charlie_offset, delta_offset]
   end
 end
