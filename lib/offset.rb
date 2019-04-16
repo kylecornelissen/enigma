@@ -1,7 +1,7 @@
-require_relative 'date_today'
+require_relative 'date_and_key_generators'
 
 class OffSet
-include DateToday
+include Generators
 attr_reader :date
   def initialize(date = current_date)
     @date = date

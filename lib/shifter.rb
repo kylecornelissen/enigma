@@ -1,12 +1,12 @@
-require_relative 'date_today'
+require_relative 'date_and_key_generators'
 
 class Shifter
-  include DateToday
+  include Generators
   attr_reader :key_gen,
               :offset,
               :characters,
               :shift_keys
-  def initialize(random_key = "%05d" % rand(10**5), date = current_date)
+  def initialize(random_key = random_key_generator, date = current_date)
     @key_gen = KeyGen.new(random_key)
     @offset = OffSet.new(date)
     @characters = ("a".."z").to_a << " "

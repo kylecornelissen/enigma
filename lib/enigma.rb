@@ -1,7 +1,7 @@
-require_relative 'date_today'
+require_relative 'date_and_key_generators'
 
 class Enigma
-  include DateToday
+  include Generators
   def initialize
     @shifter = Shifter.new
   end
