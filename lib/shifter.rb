@@ -21,18 +21,25 @@ class Shifter
     @shift_keys = [alfa_shift, bravo_shift, charlie_shift, delta_shift]
   end
 
-  def scramble_message(message)
+  def shift_letters(message, crypt_type)
     key_shifter(@key_gen.split_keys, @offset.split_last_four)
     message.downcase.chars.map do |letter|
-      @shift_keys.rotate!
-      if @characters.include?(letter)
-        @characters.rotate! until letter == @characters.first
-        @characters.rotate!(@shift_keys[3]).first
-      else
-        letter
+      if crypt_type == "encrypt"; scramble_letter(letter)
+      elsif crypt_type == "decrypt"; unscramble_letter(letter)
       end
     end.join
   end
 
+  def scramble_letter(letter)
+    if @characters.include?(letter)
+      @characters.rotate! until letter == @characters.first
+      @shift_keys.rotate!
+      @characters.rotate!(@shift_keys[3]).first
+    else
+      letter
+    end
+  end
+
+  
 
 end
