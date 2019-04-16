@@ -2,7 +2,7 @@ require './test/test_helper'
 
 class OffSetTest < Minitest::Test
   def setup
-    @offset = OffSet.new
+    @offset = OffSet.new("040895")
     @today = Time.now.strftime("%d%m%y")
   end
 
@@ -17,18 +17,25 @@ class OffSetTest < Minitest::Test
     assert_instance_of String, @offset.current_date
   end
 
+  def test_date_initializes_with_offset_argument
+    assert_equal "040895", @offset.date
+  end
+
+  def test_date_initializes_with_current_date_if_no_argument_given
+    offset2 = OffSet.new
+    assert_equal @today, offset2.date
+  end
+
   def test_square_date_multiplies_current_date_times_current_date
-    expected = (@today.to_i * @today.to_i).to_s
-    assert_equal expected, @offset.square_date
+    assert_equal "1672401025", @offset.square_date
   end
 
   def test_square_date_last_four_returns_last_four_digits_of_square_date
-    expected = ((@today.to_i * @today.to_i).to_s)[-4..-1]
-    assert_equal expected, @offset.square_date_last_four
+    assert_equal "1025", @offset.square_date_last_four
   end
 
   def test_split_last_four_returns_array_of_four_offsets
-    assert_equal 4, @offset.split_last_four.count
+    assert_equal ["1", "0", "2", "5"], @offset.split_last_four
   end
 
 end
