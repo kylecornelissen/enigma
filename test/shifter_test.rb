@@ -28,6 +28,11 @@ class ShifterTest < Minitest::Test
     assert_equal "k", @shifter.scramble_letter("h")
   end
 
-
+  def test_unscramble_letter_shifts_letters
+    split_keys1 = (["02", "27", "71", "15"])
+    split_last_four1 = (["1", "0", "2", "5"])
+    @shifter.key_shifter(split_keys1, split_last_four1)
+    assert_equal "h", @shifter.unscramble_letter("k")
+  end
 
 end

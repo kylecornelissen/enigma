@@ -40,6 +40,14 @@ class Shifter
     end
   end
 
-  
+  def unscramble_letter(letter)
+    if @characters.include?(letter)
+      @shift_keys.rotate!
+      @characters.rotate! until letter == @characters.first
+      @characters.rotate!(-@shift_keys[3]).first
+    else
+      letter
+    end
+  end
 
 end
