@@ -11,9 +11,4 @@ class KeyGen
   def split_keys
     @random_key.chars.each_cons(2).flat_map { |x, y| x + y }
   end
-
-
-
-
-
 end
