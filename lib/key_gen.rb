@@ -1,16 +1,19 @@
+require_relative 'date_and_key_generators'
+
 class KeyGen
+  include Generators
   attr_reader :random_key
 
-  def initialize(random_key = "%05d" % rand(10**5))
+  def initialize(random_key = random_key_generator)
     @random_key = random_key
   end
 
   def split_keys
-    alfa_key = @random_key[0..1]
-    bravo_key = @random_key[1..2]
-    charlie_key = @random_key[2..3]
-    delta_key = @random_key[3..4]
-    [alfa_key, bravo_key, charlie_key, delta_key]
+    @random_key.chars.each_cons(2).flat_map { |x, y| x + y }
   end
+
+
+
+
 
 end

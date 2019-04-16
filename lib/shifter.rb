@@ -1,12 +1,12 @@
-require_relative 'date_today'
+require_relative 'date_and_key_generators'
 
 class Shifter
-  include DateToday
+  include Generators
   attr_reader :key_gen,
               :offset,
               :characters,
               :shift_keys
-  def initialize(random_key = "%05d" % rand(10**5), date = current_date)
+  def initialize(random_key = random_key_generator, date = current_date)
     @key_gen = KeyGen.new(random_key)
     @offset = OffSet.new(date)
     @characters = ("a".."z").to_a << " "
@@ -21,18 +21,33 @@ class Shifter
     @shift_keys = [alfa_shift, bravo_shift, charlie_shift, delta_shift]
   end
 
-  def scramble_message(message)
+  def shift_letters(message, crypt_type)
     key_shifter(@key_gen.split_keys, @offset.split_last_four)
     message.downcase.chars.map do |letter|
-      @shift_keys.rotate!
-      if @characters.include?(letter)
-        @characters.rotate! until letter == @characters.first
-        @characters.rotate!(@shift_keys[3]).first
-      else
-        letter
+      if crypt_type == "encrypt"; scramble_letter(letter)
+      elsif crypt_type == "decrypt"; unscramble_letter(letter)
       end
     end.join
   end
 
+  def scramble_letter(letter)
+    if @characters.include?(letter)
+      @characters.rotate! until letter == @characters.first
+      @shift_keys.rotate!
+      @characters.rotate!(@shift_keys[3]).first
+    else
+      letter
+    end
+  end
+
+  def unscramble_letter(letter)
+    if @characters.include?(letter)
+      @shift_keys.rotate!
+      @characters.rotate! until letter == @characters.first
+      @characters.rotate!(-@shift_keys[3]).first
+    else
+      letter
+    end
+  end
 
 end
