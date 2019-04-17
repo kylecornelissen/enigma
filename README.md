@@ -14,7 +14,7 @@
 - All test names clearly communicate the purpose of the test
 - Test coverage metrics show 100% coverage
 - Every method is tested at both the unit and integration level
-- Git history demonstrates students are writing tests before implementation code
+- Git history demonstrates writing tests before implementation code
 
 **Version Control** = *4*
 - 50+ commits
