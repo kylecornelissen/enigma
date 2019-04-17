@@ -5,9 +5,9 @@ class Enigma
   attr_reader :key,
               :date
 
-  def initialize
-    @key = random_key_generator
-    @date = current_date
+  def initialize(key = random_key_generator, date = current_date)
+    @key = key
+    @date = date
   end
 
   def encrypt(message, key = @key, date = current_date)
@@ -16,7 +16,7 @@ class Enigma
     {:encryption => scrambled_message, :key => key, :date => date}
   end
 
-  def decrypt(message, key, date)
+  def decrypt(message, key = @key, date = @date)
     @shifter = Shifter.new(key, date)
     unscrambled_message = @shifter.shift_letters(message, "decrypt")
     {:encryption => unscrambled_message, :key => key, :date => date}
