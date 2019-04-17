@@ -14,4 +14,4 @@ end
 new_file = File.open(ARGV[1], "w")
 new_file.write(decrypt)
 new_file.close
-puts "Created #{ARGV[1]} with the key #{@enigma.key} and #{@enigma.date}"
+puts "Created #{ARGV[1]} with the key #{ARGV[2]} and #{ARGV[3]}"
