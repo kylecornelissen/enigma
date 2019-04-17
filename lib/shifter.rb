@@ -6,8 +6,9 @@ class Shifter
               :offset,
               :characters,
               :shift_keys
-  def initialize(random_key = random_key_generator, date = current_date)
-    @key_gen = KeyGen.new(random_key)
+              
+  def initialize(key = random_key_generator, date = current_date)
+    @key_gen = KeyGen.new(key)
     @offset = OffSet.new(date)
     @characters = ("a".."z").to_a << " "
     @shift_keys = []

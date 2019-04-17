@@ -6,5 +6,4 @@ module Generators
   def random_key_generator
     "%05d" % rand(10**5)
   end
-
 end
