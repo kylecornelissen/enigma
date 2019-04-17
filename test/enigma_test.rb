@@ -10,6 +10,12 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
+  def test_enigma_class_initializes_with_key_and_date
+    assert_equal @today, @enigma.date
+    assert_equal 5, @enigma.key.size
+    assert_instance_of String, @enigma.key
+  end
+
   def test_encrypt_returns_hash_with_encrypted_message_and_key_and_date
     expected = {
       encryption: "keder ohulw",
@@ -26,13 +32,6 @@ class EnigmaTest < Minitest::Test
       date: "040895"
     }
     assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
-  end
-
-  def test_current_date_returns_todays_date_in_MMDDYY
-    expected = @today
-    assert_equal expected, @enigma.current_date
-    assert_equal 6, @enigma.current_date.size
-    assert_instance_of String, @enigma.current_date
   end
 
 end

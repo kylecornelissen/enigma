@@ -10,16 +10,16 @@ class KeyGenTest < Minitest::Test
   end
 
   def test_initializes_with_keygen_argument
-    assert_equal "02715", @key_gen.random_key
+    assert_equal "02715", @key_gen.key
   end
 
-  def test_random_key_generates_random_key_when_no_argument_given
+  def test_key_generates_random_key_when_no_argument_given
     key_gen2 = KeyGen.new
-    assert_equal 5, key_gen2.random_key.size
-    assert_instance_of String, key_gen2.random_key
+    assert_equal 5, key_gen2.key.size
+    assert_instance_of String, key_gen2.key
   end
 
-  def test_split_key_splits_random_key_into_four_keys
+  def test_split_key_splits_key_into_four_keys
     assert_equal ["02", "27", "71", "15"], @key_gen.split_keys
   end
 
