@@ -10,7 +10,7 @@ class OffSetTest < Minitest::Test
     assert_instance_of OffSet, @offset
   end
 
-  def test_current_date_returns_todays_date_in_MMDDYY
+  def test_current_date_in_generator_module_returns_todays_date_in_MMDDYY
     expected = @today
     assert_equal expected, @offset.current_date
     assert_equal 6, @offset.current_date.size
@@ -37,5 +37,4 @@ class OffSetTest < Minitest::Test
   def test_split_last_four_returns_array_of_four_offsets
     assert_equal ["1", "0", "2", "5"], @offset.split_last_four
   end
-
 end

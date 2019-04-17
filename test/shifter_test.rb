@@ -9,6 +9,19 @@ class ShifterTest < Minitest::Test
     assert_instance_of Shifter, @shifter
   end
 
+  def test_shifter_class_initializes_with_characters_alphabet_array
+    assert_equal 27, @shifter.characters.count
+  end
+
+  def test_shifter_class_initiates_with_empty_shift_keys_array
+    assert_equal [], @shifter.shift_keys
+  end
+
+  def test_shifter_class_initializes_with_keygen_and_offset_objects
+    assert_instance_of KeyGen, @shifter.key_gen
+    assert_instance_of OffSet, @shifter.offset
+  end
+
   def test_key_shifter_adds_split_last_four_and_split_keys
     assert_equal [3, 27, 73, 20], @shifter.key_shifter(@shifter.key_gen.split_keys, @shifter.offset.split_last_four)
   end
