@@ -19,6 +19,6 @@
 **Version Control** = *4*
 - 50+ commits
 - 15 pull requests
-- Put in the effort to make sure every pull request comments were amazingly detailed
+- Put in the effort to make sure all pull request comments were amazingly detailed
 - Consistent git commit messages
 - Consciously made sure that no commits included multiple pieces of functionality
